@@ -1,4 +1,17 @@
-export { default as HelloWorldComponent } from './component';
-export { default as HelloWorldPureComponent } from './pure-component';
-export { default as HelloWorldFuncComponent } from './func-component';
-export { default as HelloWorldCreateElement } from './create-element';
+import React from 'react';
+
+import HelloWorldComponent from './component';
+import HelloWorldPureComponent from './pure-component';
+import HelloWorldFuncComponent from './func-component';
+import HelloWorldCreateElement from './create-element';
+
+const App = () => (
+  <>
+    <HelloWorldComponent />
+    <HelloWorldPureComponent />
+    <HelloWorldFuncComponent />
+    {HelloWorldCreateElement()}
+  </>
+);
+
+export default App;
