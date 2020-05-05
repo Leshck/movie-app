@@ -1,0 +1,7 @@
+{
+  "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  "plugins": ["react", "jest", "prettier"],
+  "env": {
+    "jest/globals": true
+  }
+}
