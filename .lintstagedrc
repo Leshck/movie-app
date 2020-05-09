@@ -1,4 +1,6 @@
 {
-    "*.+(js|jsx)": ["prettier --write", "eslint --fix", "git add"],
-    "*.+(json|css|md)": ["prettier --write", "git add"]
+     "linters": {
+        "*.+(js|jsx)": ["prettier --write", "eslint .", "git add"],
+        "*.+(json|css|md)": ["prettier --write", "git add"]
+     }
 }

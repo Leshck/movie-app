@@ -13,7 +13,7 @@ const MovieListStyled = styled.div`
 const MovieList = ({ movies }) => (
   <MovieListStyled>
     {movies.map(({ url, title, year, genre }) => (
-      <MovieCard url={url} title={title} year={year} genre={genre} />
+      <MovieCard url={url} title={title} year={year} genre={genre} key={title} />
     ))}
   </MovieListStyled>
 );

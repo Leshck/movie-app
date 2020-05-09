@@ -7,6 +7,7 @@ module.exports = merge(common, {
   devServer: {
     open: true,
     port: 8080,
+    historyApiFallback: true,
   },
   module: {
     rules: [

@@ -5,7 +5,7 @@ import ControllerBar from '../controller/ControllerBar';
 import MovieList from '../movie-list/MovieList';
 import { EmptyState } from '../../components';
 
-const Main = styled.div`
+const MainStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -59,13 +59,11 @@ const movies = [
     genre: 'Fantasy',
   },
 ];
-export default class MainContainer extends React.Component {
-  render() {
-    return (
-      <Main>
-        <ControllerBar />
-        <Content>{movies && !!movies.length ? <MovieList movies={movies} /> : <EmptyState />}</Content>
-      </Main>
-    );
-  }
-}
+const Main = () => (
+  <MainStyled>
+    <ControllerBar />
+    <Content>{movies && !!movies.length ? <MovieList movies={movies} /> : <EmptyState />}</Content>
+  </MainStyled>
+);
+
+export default Main;

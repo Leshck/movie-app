@@ -4,7 +4,7 @@ import { colors } from '../../constants/colors';
 
 const SearchButtonStyled = styled.button`
   flex-grow: 0.5;
-  background-color: ${colors.PINK_BUTTON};
+  background-color: ${colors.PINK};
   border: none;
   border-radius: 4px;
   text-transform: uppercase;

@@ -1,21 +1,35 @@
 import React from 'react';
-import { HeaderContainer, MainContainer } from '../containers';
-import { FooterComponent } from '../components';
+import { Header, Main, ErrorBoundary } from '../containers';
+import { Footer } from '../components';
 import styled from 'styled-components';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-const Wrapper = styled.div`
+const AppStyled = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Wrapper>
-        <HeaderContainer />
-        <MainContainer />
-        <FooterComponent />
-      </Wrapper>
-    );
-  }
+const MainApp = () => (
+  <>
+    <Header />
+    <Main />
+  </>
+);
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <AppStyled>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path={'/'} component={MainApp} />
+            <Route exact path={'/movie'} component={MainApp} />
+          </Switch>
+        </BrowserRouter>
+        <Footer />
+      </AppStyled>
+    </ErrorBoundary>
+  );
 }
+
+export default App;
