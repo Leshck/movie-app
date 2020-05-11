@@ -11,8 +11,8 @@ const SearchBarStyled = styled.div`
 
 const SearchBar = () => (
   <SearchBarStyled>
-    <SearchInput></SearchInput>
-    <SearchButton></SearchButton>
+    <SearchInput />
+    <SearchButton />
   </SearchBarStyled>
 );
 

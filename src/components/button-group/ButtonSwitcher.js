@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { colors } from '../../constants/colors';
 
 const ButtonSwitcherStyled = styled.button`
@@ -20,5 +21,13 @@ const ButtonSwitcher = ({ title, active, left, right, onClick }) => (
     {title}
   </ButtonSwitcherStyled>
 );
+
+ButtonSwitcher.propTypes = {
+  title: PropTypes.string,
+  active: PropTypes.bool,
+  left: PropTypes.bool,
+  right: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default ButtonSwitcher;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import searchIcon from '../../static/search-icon.jpg';
 import { Title } from '../../components';
 import { colors } from '../../constants/colors';
@@ -107,7 +108,6 @@ const HeaderContentMovie = ({ height }) => {
         ) : (
           ''
         )}
-
         <Row>
           <MovieInfo>
             <MovieInfoValue>{movie.year}</MovieInfoValue>
@@ -124,6 +124,10 @@ const HeaderContentMovie = ({ height }) => {
       </MovieDescription>
     </HeaderContentMovieStyled>
   );
+};
+
+HeaderContentMovie.propTypes = {
+  height: PropTypes.number,
 };
 
 export default HeaderContentMovie;

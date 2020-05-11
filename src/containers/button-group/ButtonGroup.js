@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { SubTitle, ButtonSwitcher } from '../../components';
 
 const ButtonGroupStyled = styled.div`
@@ -23,5 +24,12 @@ const ButtonGroup = ({ title, values, activeBtn, onClick }) => (
     ))}
   </ButtonGroupStyled>
 );
+
+ButtonGroup.propTypes = {
+  title: PropTypes.string,
+  values: PropTypes.array,
+  activeBtn: PropTypes.string,
+  onClick: PropTypes.func,
+};
 
 export default ButtonGroup;

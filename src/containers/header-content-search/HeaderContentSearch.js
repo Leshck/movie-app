@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Title } from '../../components';
 import SearchBar from '../search/SearchBar';
 import ButtonGroup from '../button-group/ButtonGroup';
@@ -26,6 +27,10 @@ const HeaderContentSearch = ({ height }) => {
       <ButtonGroup title="Search By" values={['title', 'genre']} activeBtn={sortBy} onClick={setSortBy}></ButtonGroup>
     </HeaderContentSearchStyled>
   );
+};
+
+HeaderContentSearch.propTypes = {
+  height: PropTypes.number,
 };
 
 export default HeaderContentSearch;

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Header, Main, ErrorBoundary } from '../containers';
-import { Footer } from '../components';
-import styled from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import GlobalStyle from './styles';
+import { Header, Main, ErrorBoundary } from './containers';
+import { Footer } from './components';
 
 const AppStyled = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ function App() {
   return (
     <ErrorBoundary>
       <AppStyled>
+        <GlobalStyle />
         <BrowserRouter>
           <Switch>
             <Route exact path={'/'} component={MainApp} />

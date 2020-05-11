@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint .",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
+    "lint": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "test": "jest --config=jest.config.js"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Autushonak/movie-app#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { colors } from '../../constants/colors';
 
 const MovieCardStyled = styled.div`
@@ -58,5 +59,12 @@ const MovieCard = ({ url, title, year, genre }) => (
     </GenreBlock>
   </MovieCardStyled>
 );
+
+MovieCard.propTypes = {
+  title: PropTypes.string,
+  url: PropTypes.string,
+  year: PropTypes.string,
+  genre: PropTypes.string,
+};
 
 export default MovieCard;

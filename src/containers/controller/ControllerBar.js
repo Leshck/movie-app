@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { colors } from '../../constants/colors';
 import ButtonGroup from '../button-group/ButtonGroup';
 import { ResultsTitle } from '../../components';
-import { withRouter } from 'react-router-dom';
 
 const ControllerBarStyled = styled.div`
   display: flex;
@@ -36,6 +37,10 @@ const ControllerBar = ({ match }) => {
       {match.path.includes('movie') ? <MoviePageControllerBar /> : <MainPageControllerBar />}
     </ControllerBarStyled>
   );
+};
+
+ControllerBar.propTypes = {
+  match: PropTypes.object,
 };
 
 export default withRouter(ControllerBar);

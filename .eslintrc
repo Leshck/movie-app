@@ -3,5 +3,9 @@
   "plugins": ["react", "jest", "prettier"],
   "env": {
     "jest/globals": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
   }
 }

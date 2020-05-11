@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { MovieCard } from '../../components';
 
 const MovieListStyled = styled.div`
@@ -17,5 +18,9 @@ const MovieList = ({ movies }) => (
     ))}
   </MovieListStyled>
 );
+
+MovieList.propTypes = {
+  movies: PropTypes.array,
+};
 
 export default MovieList;
