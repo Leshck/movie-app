@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { colors } from '../../constants/colors';
 import ButtonGroup from '../button-group/ButtonGroup';
 import { ResultsTitle } from '../../components';
@@ -31,16 +31,13 @@ const MainPageControllerBar = () => {
 
 const MoviePageControllerBar = () => <ResultsTitle>Films By Drama Genre</ResultsTitle>;
 
-const ControllerBar = ({ match }) => {
-  return (
-    <ControllerBarStyled>
-      {match.path.includes('movie') ? <MoviePageControllerBar /> : <MainPageControllerBar />}
-    </ControllerBarStyled>
-  );
+const ControllerBar = () => {
+  const match = useRouteMatch('/movie');
+  return <ControllerBarStyled>{match ? <MoviePageControllerBar /> : <MainPageControllerBar />}</ControllerBarStyled>;
 };
 
 ControllerBar.propTypes = {
   match: PropTypes.object,
 };
 
-export default withRouter(ControllerBar);
+export default ControllerBar;

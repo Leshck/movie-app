@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import img from '../../static/header-background.jpg';
 import HeaderContentSearch from '../header-content-search/HeaderContentSearch';
 import HeaderContentMovie from '../header-content-movie/HeaderContentMovie';
@@ -35,16 +35,16 @@ const LogoContainer = styled.div`
   z-index: 9999;
 `;
 
-const Header = ({ match }) => {
-  const isMoviePage = match.path.includes('movie');
-  const height = isMoviePage ? 600 : 400;
+const Header = () => {
+  const match = useRouteMatch('/movie');
+  const height = match ? 600 : 400;
   return (
     <HeaderStyled height={height}>
       <LogoContainer>
         <Logo />
       </LogoContainer>
       <BackgroundImage height={height} />
-      {isMoviePage ? <HeaderContentMovie height={height} /> : <HeaderContentSearch height={height} />}
+      {match ? <HeaderContentMovie height={height} /> : <HeaderContentSearch height={height} />}
     </HeaderStyled>
   );
 };
@@ -53,4 +53,4 @@ Header.propTypes = {
   match: PropTypes.object,
 };
 
-export default withRouter(Header);
+export default Header;
