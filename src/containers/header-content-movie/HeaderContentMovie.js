@@ -89,45 +89,52 @@ const movie = {
   rating: 4.3,
 };
 
-const HeaderContentMovie = ({ height }) => {
-  return (
-    <HeaderContentMovieStyled height={height}>
-      <SearchIcon src={searchIcon}></SearchIcon>
-      <Poster src={movie.imageURL}></Poster>
-      <MovieDescription>
-        <Row>
-          <Title>{movie.title}</Title>
-          <RatingBox>
-            <Rating>{movie.rating}</Rating>
-          </RatingBox>
-        </Row>
-        {movie.oscarWinning ? (
-          <Row>
-            <Text>Oscar winning Movie</Text>
-          </Row>
-        ) : (
-          ''
-        )}
-        <Row>
-          <MovieInfo>
-            <MovieInfoValue>{movie.year}</MovieInfoValue>
-            <MovieInfoProperty>year</MovieInfoProperty>
-          </MovieInfo>
-          <MovieInfo>
-            <MovieInfoValue>{movie.length}</MovieInfoValue>
-            <MovieInfoProperty>min</MovieInfoProperty>
-          </MovieInfo>
-        </Row>
-        <Row>
-          <Text>{movie.description}</Text>
-        </Row>
-      </MovieDescription>
-    </HeaderContentMovieStyled>
-  );
-};
+const HeaderContentMovie = ({ height }) => (
+  <HeaderContentMovieStyled height={height}>
+    <SearchIcon src={searchIcon}></SearchIcon>
+    <Poster src={movie.imageURL}></Poster>
+    <MovieDescription>
+      <Row>
+        <Title>{movie.title}</Title>
+        <RatingBox>
+          <Rating>{movie.rating}</Rating>
+        </RatingBox>
+      </Row>
+      <Row>
+        <Text>Oscar winning Movie</Text>
+      </Row>
+      <Row>
+        <MovieInfo>
+          <MovieInfoValue>{movie.year}</MovieInfoValue>
+          <MovieInfoProperty>year</MovieInfoProperty>
+        </MovieInfo>
+        <MovieInfo>
+          <MovieInfoValue>{movie.length}</MovieInfoValue>
+          <MovieInfoProperty>min</MovieInfoProperty>
+        </MovieInfo>
+      </Row>
+      <Row>
+        <Text>{movie.description}</Text>
+      </Row>
+    </MovieDescription>
+  </HeaderContentMovieStyled>
+);
 
 HeaderContentMovie.propTypes = {
   height: PropTypes.number,
 };
 
 export default HeaderContentMovie;
+export {
+  HeaderContentMovieStyled,
+  Poster,
+  MovieDescription,
+  Row,
+  RatingBox,
+  Rating,
+  Text,
+  MovieInfo,
+  MovieInfoProperty,
+  MovieInfoValue,
+  SearchIcon,
+};

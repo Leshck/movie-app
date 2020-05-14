@@ -34,3 +34,4 @@ HeaderContentSearch.propTypes = {
 };
 
 export default HeaderContentSearch;
+export { HeaderContentSearchStyled };

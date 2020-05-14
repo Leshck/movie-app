@@ -9,7 +9,7 @@ import { Logo } from '../../components';
 
 const HeaderStyled = styled.div`
   width: 100%;
-  height: ${({ height }) => height}}px;
+  height: ${({ height }) => height}px;
 `;
 
 const BackgroundImage = styled.div`
@@ -54,3 +54,4 @@ Header.propTypes = {
 };
 
 export default Header;
+export { HeaderStyled, BackgroundImage, LogoContainer };

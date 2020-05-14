@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
 
-const SearchButtonStyled = styled.button`
+const SearchButton = styled.button`
   flex-grow: 0.5;
   background-color: ${colors.PINK};
   border: none;
@@ -13,7 +12,5 @@ const SearchButtonStyled = styled.button`
   text-align: center;
   font-size: 16px;
 `;
-
-const SearchButton = () => <SearchButtonStyled>Search</SearchButtonStyled>;
 
 export default SearchButton;

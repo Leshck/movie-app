@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsTitle  should be rendered correctly 1`] = `
+.c0 {
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+<h4
+  className="c0"
+/>
+`;

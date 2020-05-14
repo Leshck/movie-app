@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard  should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  width: 100%;
+  height: 550px;
+  margin-bottom: 10px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c3 {
+  color: #FFFFFF;
+  margin: 10px 0;
+}
+
+.c4 {
+  border: 1px solid #FFFFFF;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.c5 {
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.c6 {
+  color: #FFFFFF;
+}
+
+.c7 {
+  color: #FFFFFF;
+  margin: 0;
+}
+
+<MovieCard>
+  <styled.div>
+    <div
+      className="c0"
+    >
+      <styled.img>
+        <img
+          className="c1"
+        />
+      </styled.img>
+      <styled.div>
+        <div
+          className="c2"
+        >
+          <styled.h3>
+            <h3
+              className="c3"
+            />
+          </styled.h3>
+          <styled.div>
+            <div
+              className="c4"
+            >
+              <styled.h3>
+                <h3
+                  className="c5"
+                />
+              </styled.h3>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="c6"
+        >
+          <styled.h5>
+            <h5
+              className="c7"
+            />
+          </styled.h5>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</MovieCard>
+`;

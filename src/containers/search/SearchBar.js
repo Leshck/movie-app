@@ -12,8 +12,9 @@ const SearchBarStyled = styled.div`
 const SearchBar = () => (
   <SearchBarStyled>
     <SearchInput />
-    <SearchButton />
+    <SearchButton>Search</SearchButton>
   </SearchBarStyled>
 );
 
 export default SearchBar;
+export { SearchBarStyled };

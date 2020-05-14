@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContentSearch should be rendered correctly 1`] = `
+<styled.div
+  height={500}
+>
+  <styled.h1>
+    Find your movie
+  </styled.h1>
+  <SearchBar />
+  <ButtonGroup
+    activeBtn="title"
+    onClick={[Function]}
+    title="Search By"
+    values={
+      Array [
+        "title",
+        "genre",
+      ]
+    }
+  />
+</styled.div>
+`;
+
+exports[`HeaderContentSearchStyled should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  z-index: 9999;
+  padding: 0 150px;
+  box-sizing: border-box;
+}
+
+<div
+  className="c0"
+  height={500}
+/>
+`;

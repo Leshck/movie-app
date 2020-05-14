@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
 
-const SearchInputStyled = styled.input`
+const SearchInput = styled.input`
   flex-grow: 10;
   background-color: ${colors.GREY_MAIN};
   color: ${colors.WHITE};
@@ -14,7 +13,5 @@ const SearchInputStyled = styled.input`
   border-radius: 4px;
   margin-right: 10px;
 `;
-
-const SearchInput = () => <SearchInputStyled />;
 
 export default SearchInput;

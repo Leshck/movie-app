@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title  should be rendered correctly 1`] = `
+.c0 {
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+<h1
+  className="c0"
+>
+  Any title
+</h1>
+`;

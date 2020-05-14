@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should be rendered correctly 1`] = `
+<ErrorBoundary>
+  <BrowserRouter>
+    <styled.div>
+      <Memo(GlobalStyleComponent) />
+      <Header />
+      <Main
+        movies={
+          Array [
+            Object {
+              "genre": "Science Fiction",
+              "title": "Guardians of the Galaxy Vol. 3",
+              "url": "https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg",
+              "year": "2020",
+            },
+            Object {
+              "genre": "Science Fiction",
+              "title": "Transformers 7",
+              "url": "https://image.tmdb.org/t/p/w500/432BowXw7a4fWXSONxBaFKqvW4f.jpg",
+              "year": "2019",
+            },
+            Object {
+              "genre": "Action",
+              "title": "Untitled Avengers",
+              "url": "https://image.tmdb.org/t/p/w500/aMETsaNNcDc6g5ZatQtVbySnSaA.jpg",
+              "year": "2019",
+            },
+            Object {
+              "genre": "Fantasy",
+              "title": "Shazam!",
+              "url": "https://image.tmdb.org/t/p/w500/yUOJHa9XmB1H0iYodG9Kb3YCc9T.jpg",
+              "year": "2018",
+            },
+            Object {
+              "genre": "Science Fiction",
+              "title": "X-Men: Dark Phoenix",
+              "url": "https://image.tmdb.org/t/p/w500/6qmsupE0opYPIaBGe7T5D2FBzLs.jpg",
+              "year": "2013",
+            },
+            Object {
+              "genre": "Fantasy",
+              "title": "Journey 3: From the Earth to the Moon",
+              "url": "https://image.tmdb.org/t/p/w500/98tbNloMBztAVnWpAznKKVUdi2O.jpg",
+              "year": "2018",
+            },
+          ]
+        }
+      />
+      <Footer />
+    </styled.div>
+  </BrowserRouter>
+</ErrorBoundary>
+`;
+
+exports[`AppStyled should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+  className="c0"
+/>
+`;
