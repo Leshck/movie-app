@@ -23,7 +23,7 @@ const HeaderContentSearch = ({ height }) => {
   return (
     <HeaderContentSearchStyled height={height}>
       <Title>Find your movie</Title>
-      <SearchBar></SearchBar>
+      <SearchBar onClick={() => true} />
       <ButtonGroup title="Search By" values={['title', 'genre']} activeBtn={sortBy} onClick={setSortBy}></ButtonGroup>
     </HeaderContentSearchStyled>
   );

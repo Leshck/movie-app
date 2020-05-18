@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ControllerBar should be rendered correctly for main page 1`] = `
+<styled.div>
+  <MainPageControllerBar />
+</styled.div>
+`;
+
 exports[`ControllerBar should be rendered correctly for movie page 1`] = `
 <styled.div>
   <MoviePageControllerBar />

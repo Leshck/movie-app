@@ -24,7 +24,23 @@ exports[`BackgroundImage should be rendered correctly 1`] = `
 />
 `;
 
-exports[`Header should be rendered correctly 1`] = `
+exports[`Header should be rendered correctly for main page  1`] = `
+<styled.div
+  height={400}
+>
+  <styled.div>
+    <Logo />
+  </styled.div>
+  <styled.div
+    height={400}
+  />
+  <HeaderContentSearch
+    height={400}
+  />
+</styled.div>
+`;
+
+exports[`Header should be rendered correctly for movie page  1`] = `
 <styled.div
   height={600}
 >

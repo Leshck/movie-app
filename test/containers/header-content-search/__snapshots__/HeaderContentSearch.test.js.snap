@@ -7,7 +7,9 @@ exports[`HeaderContentSearch should be rendered correctly 1`] = `
   <styled.h1>
     Find your movie
   </styled.h1>
-  <SearchBar />
+  <SearchBar
+    onClick={[Function]}
+  />
   <ButtonGroup
     activeBtn="title"
     onClick={[Function]}

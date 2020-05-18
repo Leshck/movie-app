@@ -1,10 +1,11 @@
 import 'jest-styled-components';
 import React from 'react';
+import * as router from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Header, { HeaderStyled, BackgroundImage, LogoContainer } from '../../../src/containers/header/Header';
 
 jest.mock('react-router-dom', () => ({
-  useRouteMatch: () => true,
+  useRouteMatch: jest.fn(),
 }));
 
 describe('HeaderStyled', () => {
@@ -29,7 +30,13 @@ describe('BackgroundImage', () => {
 });
 
 describe('Header', () => {
-  test('should be rendered correctly', () => {
+  test('should be rendered correctly for movie page ', () => {
+    router.useRouteMatch.mockImplementation(() => true);
+    const component = shallow(<Header />);
+    expect(component).toMatchSnapshot();
+  });
+  test('should be rendered correctly for main page ', () => {
+    router.useRouteMatch.mockImplementation(() => false);
     const component = shallow(<Header />);
     expect(component).toMatchSnapshot();
   });

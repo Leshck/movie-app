@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { SearchButton, SearchInput } from '../../components';
 
 const SearchBarStyled = styled.div`
@@ -9,12 +10,16 @@ const SearchBarStyled = styled.div`
   margin-top: 15px;
 `;
 
-const SearchBar = () => (
+const SearchBar = ({ onClick }) => (
   <SearchBarStyled>
     <SearchInput />
-    <SearchButton>Search</SearchButton>
+    <SearchButton onClick={onClick}>Search</SearchButton>
   </SearchBarStyled>
 );
+
+SearchBar.propTypes = {
+  onClick: PropTypes.func,
+};
 
 export default SearchBar;
 export { SearchBarStyled };
