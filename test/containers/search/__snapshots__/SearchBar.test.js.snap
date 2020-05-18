@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should be rendered correctly 1`] = `
+<styled.div>
+  <styled.input />
+  <styled.button>
+    Search
+  </styled.button>
+</styled.div>
+`;
+
+exports[`SearchBarStyled should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 15px;
+}
+
+<div
+  className="c0"
+/>
+`;

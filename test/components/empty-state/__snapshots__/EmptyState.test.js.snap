@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState  should be rendered correctly 1`] = `
+.c0 {
+  color: #FFFFFF;
+}
+
+<h1
+  className="c0"
+>
+  Empty state text
+</h1>
+`;

@@ -41,3 +41,4 @@ ControllerBar.propTypes = {
 };
 
 export default ControllerBar;
+export { ControllerBarStyled };

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo  should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c1 {
+  margin: 0;
+  color: #F65261;
+}
+
+.c2 {
+  margin: 0;
+  color: #F65261;
+  font-weight: 300;
+}
+
+<Logo>
+  <styled.div>
+    <div
+      className="c0"
+    >
+      <styled.h3>
+        <h3
+          className="c1"
+        >
+          netflix
+        </h3>
+      </styled.h3>
+      <styled.h3>
+        <h3
+          className="c2"
+        >
+          roulette
+        </h3>
+      </styled.h3>
+    </div>
+  </styled.div>
+</Logo>
+`;

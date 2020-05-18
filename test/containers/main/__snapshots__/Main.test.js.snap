@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Main should be rendered with movies 1`] = `
+<styled.div>
+  <ControllerBar />
+  <styled.div>
+    <MovieList
+      movies={
+        Array [
+          Object {
+            "genre": "Science Fiction",
+            "title": "Guardians of the Galaxy Vol. 3",
+            "url": "https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg",
+            "year": "2020",
+          },
+        ]
+      }
+    />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`Main should be rendered without movies 1`] = `
+<styled.div>
+  <ControllerBar />
+  <styled.div>
+    <styled.h1>
+      No films found
+    </styled.h1>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`MainStyled should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  min-height: 400px;
+  background-color: #232323;
+}
+
+<div
+  className="c0"
+  height={500}
+/>
+`;

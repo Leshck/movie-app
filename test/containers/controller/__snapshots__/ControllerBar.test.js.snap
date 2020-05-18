@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControllerBar should be rendered correctly for main page 1`] = `
+<styled.div>
+  <MainPageControllerBar />
+</styled.div>
+`;
+
+exports[`ControllerBar should be rendered correctly for movie page 1`] = `
+<styled.div>
+  <MoviePageControllerBar />
+</styled.div>
+`;
+
+exports[`ControllerBarStyled should be rendered correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: #555555;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 150px;
+}
+
+<div
+  className="c0"
+/>
+`;

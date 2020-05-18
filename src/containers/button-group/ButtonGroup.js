@@ -19,8 +19,9 @@ const ButtonGroup = ({ title, values, activeBtn, onClick }) => (
         right={i === array.length - 1}
         onClick={() => onClick(value)}
         active={activeBtn === value}
-        title={value}
-      />
+      >
+        {value}
+      </ButtonSwitcher>
     ))}
   </ButtonGroupStyled>
 );
@@ -33,3 +34,4 @@ ButtonGroup.propTypes = {
 };
 
 export default ButtonGroup;
+export { ButtonGroupStyled };

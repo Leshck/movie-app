@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput  should be rendered correctly 1`] = `
+.c0 {
+  -webkit-box-flex: 10;
+  -webkit-flex-grow: 10;
+  -ms-flex-positive: 10;
+  flex-grow: 10;
+  background-color: #232323;
+  color: #FFFFFF;
+  width: auto;
+  opacity: 0.5;
+  font-size: 16px;
+  padding: 15px 5px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+<input
+  className="c0"
+/>
+`;

@@ -24,3 +24,4 @@ MovieList.propTypes = {
 };
 
 export default MovieList;
+export { MovieListStyled };
