@@ -9,7 +9,7 @@ const ResultsTitle = styled.h4`
 `;
 
 ResultsTitle.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.array,
 };
 
 export default ResultsTitle;

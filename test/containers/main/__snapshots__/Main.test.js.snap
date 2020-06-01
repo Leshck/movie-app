@@ -27,7 +27,9 @@ exports[`Content should be rendered correctly 1`] = `
 
 exports[`Main should be rendered with movies 1`] = `
 <styled.div>
-  <ControllerBar />
+  <ControllerBar
+    handleSortByChange={[Function]}
+  />
   <styled.div>
     <MovieList
       movies={
@@ -47,7 +49,9 @@ exports[`Main should be rendered with movies 1`] = `
 
 exports[`Main should be rendered without movies 1`] = `
 <styled.div>
-  <ControllerBar />
+  <ControllerBar
+    handleSortByChange={[Function]}
+  />
   <styled.div>
     <styled.h1>
       No films found

@@ -27,6 +27,7 @@ module.exports = {
     ],
   },
   output: {
+    publicPath: '/',
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
   },

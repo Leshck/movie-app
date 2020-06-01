@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Title } from '../../components';
 import SearchBar from '../search/SearchBar';
 import ButtonGroup from '../button-group/ButtonGroup';
+import { getMovies, changeSearchBy } from '../../store/actions/movie';
 
 const HeaderContentSearchStyled = styled.div`
   display: flex;
@@ -18,20 +20,40 @@ const HeaderContentSearchStyled = styled.div`
   box-sizing: border-box;
 `;
 
-const HeaderContentSearch = ({ height }) => {
-  const [sortBy, setSortBy] = useState('title');
+const HeaderContentSearch = ({ height, searchBy, getMovies, changeSearchBy }) => {
+  const handleSearchByChange = (searchBy) => {
+    changeSearchBy(searchBy);
+    getMovies();
+  };
   return (
     <HeaderContentSearchStyled height={height}>
       <Title>Find your movie</Title>
-      <SearchBar onClick={() => true} />
-      <ButtonGroup title="Search By" values={['title', 'genre']} activeBtn={sortBy} onClick={setSortBy}></ButtonGroup>
+      <SearchBar />
+      <ButtonGroup
+        title="Search By"
+        values={['title', 'genres']}
+        activeBtn={searchBy}
+        onClick={handleSearchByChange}
+      ></ButtonGroup>
     </HeaderContentSearchStyled>
   );
 };
 
 HeaderContentSearch.propTypes = {
   height: PropTypes.number,
+  searchBy: PropTypes.string,
+  getMovies: PropTypes.func,
+  changeSearchBy: PropTypes.func,
 };
 
-export default HeaderContentSearch;
-export { HeaderContentSearchStyled };
+const mapStateToProps = (state) => ({
+  searchBy: state.movie.searchBy,
+});
+
+const mapDispatchToProps = {
+  getMovies,
+  changeSearchBy,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContentSearch);
+export { HeaderContentSearchStyled, HeaderContentSearch };

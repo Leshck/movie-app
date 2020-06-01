@@ -36,7 +36,7 @@ const LogoContainer = styled.div`
 `;
 
 const Header = () => {
-  const match = useRouteMatch('/movie');
+  const match = useRouteMatch('/movie/:id');
   const height = match ? 600 : 400;
   return (
     <HeaderStyled height={height}>
@@ -44,7 +44,7 @@ const Header = () => {
         <Logo />
       </LogoContainer>
       <BackgroundImage height={height} />
-      {match ? <HeaderContentMovie height={height} /> : <HeaderContentSearch height={height} />}
+      {match ? <HeaderContentMovie height={height} id={match.params.id} /> : <HeaderContentSearch height={height} />}
     </HeaderStyled>
   );
 };

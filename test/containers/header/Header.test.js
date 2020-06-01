@@ -31,7 +31,7 @@ describe('BackgroundImage', () => {
 
 describe('Header', () => {
   test('should be rendered correctly for movie page ', () => {
-    router.useRouteMatch.mockImplementation(() => true);
+    router.useRouteMatch.mockImplementation(() => ({ params: { id: 'test-id' } }));
     const component = shallow(<Header />);
     expect(component).toMatchSnapshot();
   });

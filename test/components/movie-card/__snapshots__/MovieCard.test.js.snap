@@ -65,11 +65,13 @@ exports[`MovieCard  should be rendered correctly 1`] = `
     <div
       className="c0"
     >
-      <styled.img>
-        <img
-          className="c1"
-        />
-      </styled.img>
+      <a>
+        <styled.img>
+          <img
+            className="c1"
+          />
+        </styled.img>
+      </a>
       <styled.div>
         <div
           className="c2"

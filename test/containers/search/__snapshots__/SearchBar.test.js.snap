@@ -2,8 +2,13 @@
 
 exports[`SearchBar should be rendered correctly 1`] = `
 <styled.div>
-  <styled.input />
-  <styled.button>
+  <styled.input
+    onChange={[Function]}
+    value=""
+  />
+  <styled.button
+    onClick={[Function]}
+  >
     Search
   </styled.button>
 </styled.div>

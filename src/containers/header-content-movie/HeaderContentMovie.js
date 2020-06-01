@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import searchIcon from '../../static/search-icon.jpg';
 import { Title } from '../../components';
 import { colors } from '../../constants/colors';
+import { getMovie } from '../../store/actions/movie';
 
 const HeaderContentMovieStyled = styled.div`
   display: flex;
@@ -37,15 +39,22 @@ const Row = styled.div`
 `;
 
 const RatingBox = styled.div`
+  display: flex;
+  justify-content: center;
   border: 1px solid ${colors.WHITE};
   padding: 10px 10px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   margin-left: 30px;
 `;
 
 const Rating = styled.h3`
   color: ${colors.GREEN};
+  float: left;
+  clear: left;
   margin: 0;
+  padding: 0;
 `;
 
 const Text = styled.p`
@@ -78,54 +87,66 @@ const SearchIcon = styled.img`
   height: 40px;
 `;
 
-const movie = {
-  title: 'Kill Bill Vol.2',
-  imageURL: 'https://image.tmdb.org/t/p/w500/6qmsupE0opYPIaBGe7T5D2FBzLs.jpg',
-  description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-  oscarWinning: true,
-  year: '1994',
-  length: 154,
-  rating: 4.3,
+const HeaderContentMovie = ({ height, id, getMovie, movie }) => {
+  useEffect(() => {
+    getMovie(id);
+  }, []);
+  return (
+    <HeaderContentMovieStyled height={height}>
+      <a href="/">
+        <SearchIcon src={searchIcon}></SearchIcon>
+      </a>
+      <Poster src={movie.poster_path}></Poster>
+      <MovieDescription>
+        <Row>
+          <Title>{movie.title}</Title>
+          <RatingBox>
+            <Rating>{movie.vote_average}</Rating>
+          </RatingBox>
+        </Row>
+        {movie.tagline ? (
+          <Row>
+            <Text>{movie.tagline}</Text>
+          </Row>
+        ) : (
+          ''
+        )}
+        <Row>
+          <MovieInfo>
+            <MovieInfoValue>{movie?.release_date?.slice(0, 4)}</MovieInfoValue>
+            <MovieInfoProperty>year</MovieInfoProperty>
+          </MovieInfo>
+          <MovieInfo>
+            <MovieInfoValue>{movie.vote_average}</MovieInfoValue>
+            <MovieInfoProperty>min</MovieInfoProperty>
+          </MovieInfo>
+        </Row>
+        <Row>
+          <Text>{movie.overview}</Text>
+        </Row>
+      </MovieDescription>
+    </HeaderContentMovieStyled>
+  );
 };
-
-const HeaderContentMovie = ({ height }) => (
-  <HeaderContentMovieStyled height={height}>
-    <SearchIcon src={searchIcon}></SearchIcon>
-    <Poster src={movie.imageURL}></Poster>
-    <MovieDescription>
-      <Row>
-        <Title>{movie.title}</Title>
-        <RatingBox>
-          <Rating>{movie.rating}</Rating>
-        </RatingBox>
-      </Row>
-      <Row>
-        <Text>Oscar winning Movie</Text>
-      </Row>
-      <Row>
-        <MovieInfo>
-          <MovieInfoValue>{movie.year}</MovieInfoValue>
-          <MovieInfoProperty>year</MovieInfoProperty>
-        </MovieInfo>
-        <MovieInfo>
-          <MovieInfoValue>{movie.length}</MovieInfoValue>
-          <MovieInfoProperty>min</MovieInfoProperty>
-        </MovieInfo>
-      </Row>
-      <Row>
-        <Text>{movie.description}</Text>
-      </Row>
-    </MovieDescription>
-  </HeaderContentMovieStyled>
-);
 
 HeaderContentMovie.propTypes = {
   height: PropTypes.number,
+  id: PropTypes.string,
+  getMovie: PropTypes.func,
+  movie: PropTypes.object,
 };
 
-export default HeaderContentMovie;
+const mapStateToProps = (state) => ({
+  movie: state.movie.movie,
+});
+
+const mapDispatchToProps = {
+  getMovie,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContentMovie);
 export {
+  HeaderContentMovie,
   HeaderContentMovieStyled,
   Poster,
   MovieDescription,
