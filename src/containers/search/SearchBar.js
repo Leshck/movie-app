@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -14,13 +14,16 @@ const SearchBarStyled = styled.div`
 
 const SearchBar = ({ getMovies, changeSearch }) => {
   const [search, setSearch] = useState('');
-  const handleSearch = () => {
+  const handleSearch = useCallback(() => {
     changeSearch(search);
     getMovies();
-  };
+  }, [search]);
+  const onChange = useCallback((e) => {
+    setSearch(e.target.value);
+  }, []);
   return (
     <SearchBarStyled>
-      <SearchInput onChange={(e) => setSearch(e.target.value)} value={search} />
+      <SearchInput onChange={onChange} value={search} />
       <SearchButton onClick={handleSearch}>Search</SearchButton>
     </SearchBarStyled>
   );

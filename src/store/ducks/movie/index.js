@@ -1,43 +1,51 @@
-import { put, takeLatest, select } from 'redux-saga/effects';
+import { put, takeLatest, select, call } from 'redux-saga/effects';
+import { MOVIE } from '../../actions/constants';
+import * as API from '../../../services/movie';
 
 function* fetchMovies() {
   const state = yield select();
-  const json = yield fetch(
-    `http://reactjs-cdp.herokuapp.com/movies?sortBy=${state.movie.sortBy}&sortOrder=desc&offset=0&limit=6&search=${state.movie.search}&searchBy=${state.movie.searchBy}&filter=${state.movie.suggestedGenre}`,
-  ).then((response) => response.json());
-  yield put({ type: 'MOVIES_RECEIVED', payload: json.data, total: json.total });
+  const json = yield call(API.fetchMovies, state.movie);
+  yield put({ type: MOVIE.MOVIES_RECEIVED, payload: json.data, total: json.total });
 }
 
 function* fetchMovie(action) {
-  const json = yield fetch(`http://reactjs-cdp.herokuapp.com/movies/${action.payload}`).then((response) =>
-    response.json(),
-  );
-  yield put({ type: 'MOVIE_RECEIVED', payload: json });
-  yield put({ type: 'GET_MOVIES' });
+  const json = yield call(API.fetchMovie, action.payload);
+  yield put({ type: MOVIE.MOVIE_RECEIVED, payload: json });
+  yield put({ type: MOVIE.GET_MOVIES });
 }
 
-export function movieReducer(state = {}, action) {
+export function movieReducer(state = initialState, action) {
   switch (action.type) {
-    case 'MOVIES_RECEIVED':
+    case MOVIE.MOVIES_RECEIVED:
       return { ...state, movieList: action.payload, total: action.total };
-    case 'MOVIE_RECEIVED':
+    case MOVIE.MOVIE_RECEIVED:
       return {
         ...state,
         movie: action.payload,
         suggestedGenre: action.payload.genres[Math.floor(Math.random() * action.payload.genres.length)],
       };
-    case 'CHANGE_SORT_BY':
+    case MOVIE.CHANGE_SORT_BY:
       return { ...state, sortBy: action.payload };
-    case 'CHANGE_SEARCH_BY':
+    case MOVIE.CHANGE_SEARCH_BY:
       return { ...state, searchBy: action.payload };
-    case 'CHANGE_SEARCH':
+    case MOVIE.CHANGE_SEARCH:
       return { ...state, search: action.payload };
     default:
       return state;
   }
 }
 
+const initialState = {
+  movieList: [],
+  searchBy: 'title',
+  sortBy: 'release_date',
+  search: '',
+  total: 0,
+  movie: {},
+  suggestedGenre: '',
+};
+
 export function* watchMovieSagas() {
-  yield takeLatest('GET_MOVIES', fetchMovies);
-  yield takeLatest('GET_MOVIE', fetchMovie);
+  yield takeLatest(MOVIE.GET_MOVIES, fetchMovies);
+  yield takeLatest(MOVIE.GET_MOVIE, fetchMovie);
 }

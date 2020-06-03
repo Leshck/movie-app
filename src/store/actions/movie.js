@@ -1,19 +1,21 @@
+import { MOVIE } from './constants';
+
 export const getMovies = () => ({
-  type: 'GET_MOVIES',
+  type: MOVIE.GET_MOVIES,
 });
 export const getMovie = (payload) => ({
-  type: 'GET_MOVIE',
+  type: MOVIE.GET_MOVIE,
   payload,
 });
 export const changeSortBy = (payload) => ({
-  type: 'CHANGE_SORT_BY',
+  type: MOVIE.CHANGE_SORT_BY,
   payload,
 });
 export const changeSearchBy = (payload) => ({
-  type: 'CHANGE_SEARCH_BY',
+  type: MOVIE.CHANGE_SEARCH_BY,
   payload,
 });
 export const changeSearch = (payload) => ({
-  type: 'CHANGE_SEARCH',
+  type: MOVIE.CHANGE_SEARCH,
   payload,
 });

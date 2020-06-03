@@ -24,19 +24,7 @@ const configStore = (initialState = {}) => {
   return store;
 };
 
-const initialState = {
-  movie: {
-    movieList: [],
-    searchBy: 'title',
-    sortBy: 'release_date',
-    search: '',
-    total: 0,
-    movie: {},
-    suggestedGenre: '',
-  },
-};
-
-const store = configStore(initialState);
+const store = configStore();
 const persistor = persistStore(store);
 
 export { store, persistor };
