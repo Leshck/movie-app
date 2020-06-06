@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { SearchButton, SearchInput } from '../../components';
 import { getMovies, changeSearch } from '../../store/actions/movie';
 
@@ -12,18 +13,29 @@ const SearchBarStyled = styled.div`
   margin-top: 15px;
 `;
 
-const SearchBar = ({ getMovies, changeSearch }) => {
-  const [search, setSearch] = useState('');
-  const handleSearch = useCallback(() => {
-    changeSearch(search);
+const SearchBar = ({ getMovies, changeSearch, searchParam }) => {
+  const [searchString, setSearch] = useState('');
+
+  useEffect(() => {
+    if (!searchString) {
+      setSearch(searchParam);
+    }
+    changeSearch(searchParam);
     getMovies();
-  }, [search]);
+  }, [searchParam]);
+
+  const history = useHistory();
+
+  const handleSearch = useCallback(() => {
+    history.push(`/search/${searchString}`);
+  }, [searchString]);
+
   const onChange = useCallback((e) => {
     setSearch(e.target.value);
   }, []);
   return (
     <SearchBarStyled>
-      <SearchInput onChange={onChange} value={search} />
+      <SearchInput onChange={onChange} value={searchString} />
       <SearchButton onClick={handleSearch}>Search</SearchButton>
     </SearchBarStyled>
   );
@@ -32,6 +44,7 @@ const SearchBar = ({ getMovies, changeSearch }) => {
 SearchBar.propTypes = {
   getMovies: PropTypes.func,
   changeSearch: PropTypes.func,
+  searchParam: PropTypes.string,
 };
 
 const mapDispatchToProps = {

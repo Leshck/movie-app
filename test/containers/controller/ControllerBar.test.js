@@ -18,7 +18,7 @@ describe('ControllerBarStyled', () => {
 describe('ControllerBar', () => {
   test('should be rendered correctly for movie page', () => {
     router.useRouteMatch.mockImplementation(() => true);
-    const component = shallow(<ControllerBar />);
+    const component = shallow(<ControllerBar mode="movie" />);
     expect(component).toMatchSnapshot();
   });
 
