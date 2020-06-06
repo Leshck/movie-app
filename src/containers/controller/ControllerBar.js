@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRouteMatch } from 'react-router-dom';
@@ -14,30 +14,50 @@ const ControllerBarStyled = styled.div`
   padding: 0 150px;
 `;
 
-const MainPageControllerBar = () => {
-  const [sortBy, setSortBy] = useState('release date');
+const MainPageControllerBar = ({ total, sortBy, handleSortByChange }) => {
   return (
     <>
-      <ResultsTitle>7 movie found</ResultsTitle>
+      <ResultsTitle>{total} movie found</ResultsTitle>
       <ButtonGroup
         title="Sort by"
-        values={['release date', 'rating']}
+        values={['release_date', 'rating']}
         activeBtn={sortBy}
-        onClick={setSortBy}
+        onClick={handleSortByChange}
       ></ButtonGroup>
     </>
   );
 };
 
-const MoviePageControllerBar = () => <ResultsTitle>Films By Drama Genre</ResultsTitle>;
+const MoviePageControllerBar = ({ suggestedGenre }) => <ResultsTitle>Films By {suggestedGenre} Genre</ResultsTitle>;
 
-const ControllerBar = () => {
+const ControllerBar = ({ total, sortBy, handleSortByChange, suggestedGenre }) => {
   const match = useRouteMatch('/movie');
-  return <ControllerBarStyled>{match ? <MoviePageControllerBar /> : <MainPageControllerBar />}</ControllerBarStyled>;
+  return (
+    <ControllerBarStyled>
+      {match ? (
+        <MoviePageControllerBar suggestedGenre={suggestedGenre} />
+      ) : (
+        <MainPageControllerBar total={total} sortBy={sortBy} handleSortByChange={handleSortByChange} />
+      )}
+    </ControllerBarStyled>
+  );
 };
 
 ControllerBar.propTypes = {
-  match: PropTypes.object,
+  total: PropTypes.number,
+  sortBy: PropTypes.string,
+  handleSortByChange: PropTypes.func,
+  suggestedGenre: PropTypes.string,
+};
+
+MoviePageControllerBar.propTypes = {
+  suggestedGenre: PropTypes.string,
+};
+
+MainPageControllerBar.propTypes = {
+  total: PropTypes.number,
+  sortBy: PropTypes.string,
+  handleSortByChange: PropTypes.func,
 };
 
 export default ControllerBar;

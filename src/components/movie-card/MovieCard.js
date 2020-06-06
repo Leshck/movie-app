@@ -45,9 +45,11 @@ const Genre = styled.h5`
   margin: 0;
 `;
 
-const MovieCard = ({ url, title, year, genre }) => (
+const MovieCard = ({ img, title, year, genre, url }) => (
   <MovieCardStyled>
-    <MoviePoster src={url}></MoviePoster>
+    <a href={url}>
+      <MoviePoster src={img}></MoviePoster>
+    </a>
     <MovieInfo>
       <MovieName>{title}</MovieName>
       <MovieYearBox>
@@ -65,6 +67,7 @@ MovieCard.propTypes = {
   url: PropTypes.string,
   year: PropTypes.string,
   genre: PropTypes.string,
+  img: PropTypes.string,
 };
 
 export default MovieCard;

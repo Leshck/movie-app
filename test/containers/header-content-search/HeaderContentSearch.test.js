@@ -1,8 +1,9 @@
 import 'jest-styled-components';
 import React from 'react';
 import { shallow } from 'enzyme';
-import HeaderContentSearch, {
+import {
   HeaderContentSearchStyled,
+  HeaderContentSearch,
 } from '../../../src/containers/header-content-search/HeaderContentSearch';
 
 describe('HeaderContentSearchStyled', () => {

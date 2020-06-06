@@ -1,7 +1,7 @@
 import 'jest-styled-components';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Main, { MainStyled, Content } from '../../../src/containers/main/Main';
+import { Main, MainStyled, Content } from '../../../src/containers/main/Main';
 
 const movies = [
   {

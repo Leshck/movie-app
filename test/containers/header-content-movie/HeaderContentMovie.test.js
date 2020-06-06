@@ -1,7 +1,8 @@
 import 'jest-styled-components';
 import React from 'react';
 import { shallow } from 'enzyme';
-import HeaderContentMovie, {
+import {
+  HeaderContentMovie,
   HeaderContentMovieStyled,
   Poster,
   MovieDescription,
@@ -94,7 +95,15 @@ describe('SearchIcon', () => {
 
 describe('HeaderContentMovie', () => {
   test('should be rendered correctly', () => {
-    const component = shallow(<HeaderContentMovie height={500} />);
+    const testMovie = {
+      poster_path: 'test_path',
+      title: 'test-title',
+      vote_average: '3.4',
+      release_date: '2020-12-12',
+      vote_average: '123',
+      overview: 'test overview',
+    };
+    const component = shallow(<HeaderContentMovie height={500} movie={testMovie} />);
     expect(component).toMatchSnapshot();
   });
 });

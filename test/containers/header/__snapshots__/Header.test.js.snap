@@ -34,7 +34,7 @@ exports[`Header should be rendered correctly for main page  1`] = `
   <styled.div
     height={400}
   />
-  <HeaderContentSearch
+  <Connect(HeaderContentSearch)
     height={400}
   />
 </styled.div>
@@ -50,8 +50,9 @@ exports[`Header should be rendered correctly for movie page  1`] = `
   <styled.div
     height={600}
   />
-  <HeaderContentMovie
+  <Connect(HeaderContentMovie)
     height={600}
+    id="test-id"
   />
 </styled.div>
 `;

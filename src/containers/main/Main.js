@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { colors } from '../../constants/colors';
 import ControllerBar from '../controller/ControllerBar';
 import MovieList from '../movie-list/MovieList';
 import { EmptyState } from '../../components';
+import { getMovies, changeSortBy } from '../../store/actions/movie';
 
 const MainStyled = styled.div`
   display: flex;
@@ -22,18 +24,49 @@ const Content = styled.div`
   min-height: 300px;
 `;
 
-const Main = ({ movies }) => (
-  <MainStyled>
-    <ControllerBar />
-    <Content>
-      {movies && !!movies.length ? <MovieList movies={movies} /> : <EmptyState>No films found</EmptyState>}
-    </Content>
-  </MainStyled>
-);
-
-Main.propTypes = {
-  movies: PropTypes.array,
+const Main = ({ total, movies, sortBy, getMovies, changeSortBy, suggestedGenre }) => {
+  useEffect(() => {
+    getMovies();
+  }, []);
+  const handleSortByChange = (sortBy) => {
+    changeSortBy(sortBy);
+    getMovies();
+  };
+  return (
+    <MainStyled>
+      <ControllerBar
+        total={total}
+        sortBy={sortBy}
+        handleSortByChange={handleSortByChange}
+        suggestedGenre={suggestedGenre}
+      />
+      <Content>
+        {movies && !!movies.length ? <MovieList movies={movies} /> : <EmptyState>No films found</EmptyState>}
+      </Content>
+    </MainStyled>
+  );
 };
 
-export default Main;
-export { MainStyled, Content };
+Main.propTypes = {
+  total: PropTypes.number,
+  movies: PropTypes.array,
+  sortBy: PropTypes.string,
+  getMovies: PropTypes.func,
+  changeSortBy: PropTypes.func,
+  suggestedGenre: PropTypes.string,
+};
+
+const mapStateToProps = (state) => ({
+  movies: state.movie.movieList,
+  sortBy: state.movie.sortBy,
+  total: state.movie.total,
+  suggestedGenre: state.movie.suggestedGenre,
+});
+
+const mapDispatchToProps = {
+  getMovies,
+  changeSortBy,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export { MainStyled, Content, Main };

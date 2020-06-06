@@ -4,32 +4,31 @@ exports[`HeaderContentMovie should be rendered correctly 1`] = `
 <styled.div
   height={500}
 >
+  <a
+    href="/"
+  >
+    <styled.img
+      src=""
+    />
+  </a>
   <styled.img
-    src=""
-  />
-  <styled.img
-    src="https://image.tmdb.org/t/p/w500/6qmsupE0opYPIaBGe7T5D2FBzLs.jpg"
+    src="test_path"
   />
   <styled.div>
     <styled.div>
       <styled.h1>
-        Kill Bill Vol.2
+        test-title
       </styled.h1>
       <styled.div>
         <styled.h3>
-          4.3
+          123
         </styled.h3>
       </styled.div>
     </styled.div>
     <styled.div>
-      <styled.p>
-        Oscar winning Movie
-      </styled.p>
-    </styled.div>
-    <styled.div>
       <styled.div>
         <styled.h3>
-          1994
+          2020
         </styled.h3>
         <styled.p>
           year
@@ -37,7 +36,7 @@ exports[`HeaderContentMovie should be rendered correctly 1`] = `
       </styled.div>
       <styled.div>
         <styled.h3>
-          154
+          123
         </styled.h3>
         <styled.p>
           min
@@ -46,7 +45,7 @@ exports[`HeaderContentMovie should be rendered correctly 1`] = `
     </styled.div>
     <styled.div>
       <styled.p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        test overview
       </styled.p>
     </styled.div>
   </styled.div>
@@ -164,7 +163,10 @@ exports[`Poster should be rendered correctly 1`] = `
 exports[`Rating should be rendered correctly 1`] = `
 .c0 {
   color: #A1E66F;
+  float: left;
+  clear: left;
   margin: 0;
+  padding: 0;
 }
 
 <h3
@@ -174,8 +176,18 @@ exports[`Rating should be rendered correctly 1`] = `
 
 exports[`RatingBox should be rendered correctly 1`] = `
 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border: 1px solid #FFFFFF;
   padding: 10px 10px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   margin-left: 30px;
 }
