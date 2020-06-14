@@ -5,9 +5,32 @@ exports[`App should be rendered correctly 1`] = `
   <BrowserRouter>
     <styled.div>
       <Memo(GlobalStyleComponent) />
-      <Header />
-      <Connect(Main) />
-      <Footer />
+      <Switch>
+        <Route
+          exact={true}
+          path="/"
+        >
+          <Search />
+        </Route>
+        <Route
+          exact={true}
+          path="/search"
+        >
+          <Search />
+        </Route>
+        <Route
+          path="/search/:search"
+          render={[Function]}
+        />
+        <Route
+          path="/movie/:id"
+          render={[Function]}
+        />
+        <Route
+          component={[Function]}
+          path="/*"
+        />
+      </Switch>
     </styled.div>
   </BrowserRouter>
 </ErrorBoundary>

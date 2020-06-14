@@ -4,13 +4,13 @@ exports[`HeaderContentMovie should be rendered correctly 1`] = `
 <styled.div
   height={500}
 >
-  <a
-    href="/"
+  <Link
+    to="/"
   >
     <styled.img
       src=""
     />
-  </a>
+  </Link>
   <styled.img
     src="test_path"
   />

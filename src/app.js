@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalStyle from './styles';
-import { Header, Main, ErrorBoundary } from './containers';
-import { Footer } from './components';
+import { ErrorBoundary } from './containers';
+import { NotFound } from './components';
+import Search from './containers/pages/Search';
+import Movie from './containers/pages/Movie';
 
 const AppStyled = styled.div`
   display: flex;
@@ -15,9 +17,17 @@ const App = () => (
     <BrowserRouter>
       <AppStyled>
         <GlobalStyle />
-        <Header />
-        <Main />
-        <Footer />
+        <Switch>
+          <Route exact path="/">
+            <Search />
+          </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route path="/search/:search" render={({ match }) => <Search search={match.params.search} />}></Route>
+          <Route path="/movie/:id" render={({ match }) => <Movie id={match.params.id} />} />
+          <Route path="/*" component={NotFound} />
+        </Switch>
       </AppStyled>
     </BrowserRouter>
   </ErrorBoundary>

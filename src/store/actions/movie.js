@@ -19,3 +19,9 @@ export const changeSearch = (payload) => ({
   type: MOVIE.CHANGE_SEARCH,
   payload,
 });
+export const resetMovie = () => ({
+  type: MOVIE.RESET_MOVIE,
+});
+export const resetSearch = () => ({
+  type: MOVIE.RESET_SEARCH,
+});

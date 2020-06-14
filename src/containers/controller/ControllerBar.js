@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useRouteMatch } from 'react-router-dom';
 import { colors } from '../../constants/colors';
 import ButtonGroup from '../button-group/ButtonGroup';
 import { ResultsTitle } from '../../components';
@@ -30,11 +29,10 @@ const MainPageControllerBar = ({ total, sortBy, handleSortByChange }) => {
 
 const MoviePageControllerBar = ({ suggestedGenre }) => <ResultsTitle>Films By {suggestedGenre} Genre</ResultsTitle>;
 
-const ControllerBar = ({ total, sortBy, handleSortByChange, suggestedGenre }) => {
-  const match = useRouteMatch('/movie');
+const ControllerBar = ({ total, sortBy, handleSortByChange, suggestedGenre, mode }) => {
   return (
     <ControllerBarStyled>
-      {match ? (
+      {mode === 'movie' ? (
         <MoviePageControllerBar suggestedGenre={suggestedGenre} />
       ) : (
         <MainPageControllerBar total={total} sortBy={sortBy} handleSortByChange={handleSortByChange} />
@@ -48,6 +46,7 @@ ControllerBar.propTypes = {
   sortBy: PropTypes.string,
   handleSortByChange: PropTypes.func,
   suggestedGenre: PropTypes.string,
+  mode: PropTypes.string,
 };
 
 MoviePageControllerBar.propTypes = {

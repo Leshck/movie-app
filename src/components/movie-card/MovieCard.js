@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { colors } from '../../constants/colors';
 
 const MovieCardStyled = styled.div`
@@ -46,20 +47,20 @@ const Genre = styled.h5`
 `;
 
 const MovieCard = ({ img, title, year, genre, url }) => (
-  <MovieCardStyled>
-    <a href={url}>
+  <Link to={url}>
+    <MovieCardStyled>
       <MoviePoster src={img}></MoviePoster>
-    </a>
-    <MovieInfo>
-      <MovieName>{title}</MovieName>
-      <MovieYearBox>
-        <MovieYear>{year}</MovieYear>
-      </MovieYearBox>
-    </MovieInfo>
-    <GenreBlock>
-      <Genre>{genre}</Genre>
-    </GenreBlock>
-  </MovieCardStyled>
+      <MovieInfo>
+        <MovieName>{title}</MovieName>
+        <MovieYearBox>
+          <MovieYear>{year}</MovieYear>
+        </MovieYearBox>
+      </MovieInfo>
+      <GenreBlock>
+        <Genre>{genre}</Genre>
+      </GenreBlock>
+    </MovieCardStyled>
+  </Link>
 );
 
 MovieCard.propTypes = {

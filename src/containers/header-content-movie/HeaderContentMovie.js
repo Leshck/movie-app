@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import searchIcon from '../../static/search-icon.jpg';
 import { Title } from '../../components';
 import { colors } from '../../constants/colors';
@@ -91,11 +92,14 @@ const HeaderContentMovie = ({ height, id, getMovie, movie }) => {
   useEffect(() => {
     getMovie(id);
   }, []);
+  useEffect(() => {
+    getMovie(id);
+  }, [id]);
   return (
     <HeaderContentMovieStyled height={height}>
-      <a href="/">
+      <Link to="/">
         <SearchIcon src={searchIcon}></SearchIcon>
-      </a>
+      </Link>
       <Poster src={movie.poster_path}></Poster>
       <MovieDescription>
         <Row>

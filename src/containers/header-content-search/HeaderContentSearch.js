@@ -20,7 +20,7 @@ const HeaderContentSearchStyled = styled.div`
   box-sizing: border-box;
 `;
 
-const HeaderContentSearch = ({ height, searchBy, getMovies, changeSearchBy }) => {
+const HeaderContentSearch = ({ height, searchBy, getMovies, changeSearchBy, search }) => {
   const handleSearchByChange = (searchBy) => {
     changeSearchBy(searchBy);
     getMovies();
@@ -28,7 +28,7 @@ const HeaderContentSearch = ({ height, searchBy, getMovies, changeSearchBy }) =>
   return (
     <HeaderContentSearchStyled height={height}>
       <Title>Find your movie</Title>
-      <SearchBar />
+      <SearchBar searchParam={search} />
       <ButtonGroup
         title="Search By"
         values={['title', 'genres']}
@@ -44,6 +44,7 @@ HeaderContentSearch.propTypes = {
   searchBy: PropTypes.string,
   getMovies: PropTypes.func,
   changeSearchBy: PropTypes.func,
+  search: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({

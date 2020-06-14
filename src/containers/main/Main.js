@@ -24,7 +24,7 @@ const Content = styled.div`
   min-height: 300px;
 `;
 
-const Main = ({ total, movies, sortBy, getMovies, changeSortBy, suggestedGenre }) => {
+const Main = ({ total, movies, sortBy, getMovies, changeSortBy, suggestedGenre, mode }) => {
   useEffect(() => {
     getMovies();
   }, []);
@@ -39,6 +39,7 @@ const Main = ({ total, movies, sortBy, getMovies, changeSortBy, suggestedGenre }
         sortBy={sortBy}
         handleSortByChange={handleSortByChange}
         suggestedGenre={suggestedGenre}
+        mode={mode}
       />
       <Content>
         {movies && !!movies.length ? <MovieList movies={movies} /> : <EmptyState>No films found</EmptyState>}
@@ -54,6 +55,7 @@ Main.propTypes = {
   getMovies: PropTypes.func,
   changeSortBy: PropTypes.func,
   suggestedGenre: PropTypes.string,
+  mode: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({

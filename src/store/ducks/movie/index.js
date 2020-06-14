@@ -30,6 +30,11 @@ export function movieReducer(state = initialState, action) {
       return { ...state, searchBy: action.payload };
     case MOVIE.CHANGE_SEARCH:
       return { ...state, search: action.payload };
+    case MOVIE.RESET_MOVIE:
+      return { ...state, movie: {}, suggestedGenre: '' };
+    case MOVIE.RESET_SEARCH:
+      return { ...state, search: '' };
+
     default:
       return state;
   }

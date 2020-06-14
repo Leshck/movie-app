@@ -8,3 +8,4 @@ export { default as MovieCard } from './movie-card/MovieCard';
 export { default as EmptyState } from './empty-state/EmptyState';
 export { default as ResultsTitle } from './results-title/ResultsTitle';
 export { default as Logo } from './logo/Logo';
+export { default as NotFound } from './not-found/NotFound';
