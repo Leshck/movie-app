@@ -1,17 +1,10 @@
 import '@babel/polyfill';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter } from 'react-router-dom';
+import configureStore from './store';
 import App from './app';
 
-import { store, persistor } from './store';
+const { store } = configureStore(window.PRELOADED_STATE);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <App />
-    </PersistGate>
-  </Provider>,
-  document.querySelector('#root'),
-);
+ReactDOM.hydrate(<App Router={BrowserRouter} store={store} />, document.querySelector('#root'));

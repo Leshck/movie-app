@@ -10,7 +10,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
-      template: path.resolve(__dirname, 'public', 'index.html'),
+      template: path.resolve(__dirname, '..', 'public', 'index.html'),
     }),
   ],
   module: {
@@ -28,7 +28,5 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'build'),
   },
 };
