@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const persistConfig = {
   key: 'root',
@@ -24,7 +24,10 @@ const configStore = (initialState = {}) => {
   return store;
 };
 
-const store = configStore();
-const persistor = persistStore(store);
-
-export { store, persistor };
+export default (initialState) => {
+  const store = configStore(initialState);
+  return {
+    persistor: persistStore(store),
+    store,
+  };
+};

@@ -1,39 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should be rendered correctly 1`] = `
-<ErrorBoundary>
-  <BrowserRouter>
-    <styled.div>
-      <Memo(GlobalStyleComponent) />
-      <Switch>
-        <Route
-          exact={true}
-          path="/"
-        >
-          <Search />
-        </Route>
-        <Route
-          exact={true}
-          path="/search"
-        >
-          <Search />
-        </Route>
-        <Route
-          path="/search/:search"
-          render={[Function]}
-        />
-        <Route
-          path="/movie/:id"
-          render={[Function]}
-        />
-        <Route
-          component={[Function]}
-          path="/*"
-        />
-      </Switch>
-    </styled.div>
-  </BrowserRouter>
-</ErrorBoundary>
+<Provider>
+  <ErrorBoundary>
+    <Component>
+      <styled.div>
+        <Memo(GlobalStyleComponent) />
+        <Switch>
+          <Route
+            exact={true}
+            path="/search"
+          >
+            <Search />
+          </Route>
+          <Route
+            path="/search/:search"
+            render={[Function]}
+          />
+          <Route
+            path="/movie/:id"
+            render={[Function]}
+          />
+          <Redirect
+            exact={true}
+            from="/"
+            to="/search"
+          />
+          <Route
+            component={[Function]}
+            path="/*"
+          />
+        </Switch>
+      </styled.div>
+    </Component>
+  </ErrorBoundary>
+</Provider>
 `;
 
 exports[`AppStyled should be rendered correctly 1`] = `

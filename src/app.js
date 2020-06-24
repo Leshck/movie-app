@@ -1,6 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
 import GlobalStyle from './styles';
 import { ErrorBoundary } from './containers';
 import { NotFound } from './components';
@@ -12,26 +14,33 @@ const AppStyled = styled.div`
   flex-direction: column;
 `;
 
-const App = () => (
-  <ErrorBoundary>
-    <BrowserRouter>
-      <AppStyled>
-        <GlobalStyle />
-        <Switch>
-          <Route exact path="/">
-            <Search />
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
-          <Route path="/search/:search" render={({ match }) => <Search search={match.params.search} />}></Route>
-          <Route path="/movie/:id" render={({ match }) => <Movie id={match.params.id} />} />
-          <Route path="/*" component={NotFound} />
-        </Switch>
-      </AppStyled>
-    </BrowserRouter>
-  </ErrorBoundary>
+const App = ({ Router, location, context, store }) => (
+  <Provider store={store}>
+    <ErrorBoundary>
+      <Router location={location} context={context}>
+        <AppStyled>
+          <GlobalStyle />
+          <Switch>
+            <Route exact path="/search">
+              <Search />
+            </Route>
+            <Route path="/search/:search" render={({ match }) => <Search search={match.params.search} />}></Route>
+            <Route path="/movie/:id" render={({ match }) => <Movie id={match.params.id} />} />
+            <Redirect exact from="/" to="/search" />
+            <Route path="/*" component={NotFound} />
+          </Switch>
+        </AppStyled>
+      </Router>
+    </ErrorBoundary>
+  </Provider>
 );
+
+App.propTypes = {
+  Router: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  store: PropTypes.object.isRequired,
+  context: PropTypes.object,
+};
 
 export default App;
 export { AppStyled };
