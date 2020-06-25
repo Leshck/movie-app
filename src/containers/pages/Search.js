@@ -1,11 +1,15 @@
+// @flow
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { resetSearch } from '../../store/actions/movie';
 import { Header, Main } from '../../containers';
 import { Footer } from '../../components';
 
-const Search = ({ search }) => {
+type Props = {
+  search: string,
+};
+
+const Search = ({ search }: Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     return () => {
@@ -19,10 +23,6 @@ const Search = ({ search }) => {
       <Footer />
     </>
   );
-};
-
-Search.propTypes = {
-  search: PropTypes.string,
 };
 
 export default Search;

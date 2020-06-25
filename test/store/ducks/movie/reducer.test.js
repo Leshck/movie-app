@@ -1,4 +1,5 @@
 import { movieReducer } from '../../../../src/store/ducks/movie';
+import { List } from 'immutable';
 
 describe('Movie reducer', () => {
   test('should handle MOVIES_RECEIVED', () => {
@@ -12,7 +13,7 @@ describe('Movie reducer', () => {
         },
       ),
     ).toMatchObject({
-      movieList: ['movie1', 'movie2'],
+      movieList: List(['movie1', 'movie2']),
       total: 130,
     });
   });

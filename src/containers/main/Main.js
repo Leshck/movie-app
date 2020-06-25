@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { createSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { colors } from '../../constants/colors';
 import ControllerBar from '../controller/ControllerBar';
@@ -58,8 +59,13 @@ Main.propTypes = {
   mode: PropTypes.string,
 };
 
+const itemsSelector = createSelector(
+  (state) => state.movie.movieList,
+  (items) => items.toArray(),
+);
+
 const mapStateToProps = (state) => ({
-  movies: state.movie.movieList,
+  movies: itemsSelector(state),
   sortBy: state.movie.sortBy,
   total: state.movie.total,
   suggestedGenre: state.movie.suggestedGenre,
