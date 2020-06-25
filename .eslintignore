@@ -1,2 +1,4 @@
 /build
 /cypress
+/flow-typed
+/storybook-static

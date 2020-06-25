@@ -1,3 +1,4 @@
+import { List } from 'immutable';
 import { put, takeLatest, select, call } from 'redux-saga/effects';
 import { MOVIE } from '../../actions/constants';
 import * as API from '../../../services/movie';
@@ -17,7 +18,7 @@ function* fetchMovie(action) {
 export function movieReducer(state = initialState, action) {
   switch (action.type) {
     case MOVIE.MOVIES_RECEIVED:
-      return { ...state, movieList: action.payload, total: action.total };
+      return { ...state, movieList: List(action.payload), total: action.total };
     case MOVIE.MOVIE_RECEIVED:
       return {
         ...state,
@@ -41,7 +42,7 @@ export function movieReducer(state = initialState, action) {
 }
 
 const initialState = {
-  movieList: [],
+  movieList: List(),
   searchBy: 'title',
   sortBy: 'release_date',
   search: '',
